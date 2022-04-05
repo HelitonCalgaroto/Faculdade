@@ -1,0 +1,13 @@
+# import calendar
+# year_calendar = int(input("Informe o ano calendário: "))
+#
+# bissexto = year_calendar % 4 == 0 and (year_calendar % 400 == 0 or year_calendar % 100 != 0)
+#
+# if not bissexto:
+#     print("O ano NÃO é bissexto.")
+# else:
+#     print("O ano É bissexto.")
+#
+# showcalendar = input("Deseja ver o calendário do ano informado? Digite [S] ou [N]")
+# if showcalendar.upper() == "S":
+#     print (calendar.TextCalendar(calendar.SUNDAY).formatyear(year_calendar))
