@@ -1,18 +1,13 @@
-# Input do texto pelo usuário:
-text = str(input("Informe o texto: "))
-text = text.split(" ", 50)
-textmax = 50
-textoFinal, linha_2 = "", ""
-longWord = ""
+text = str(input("Informe o texto: ")).split(" ", 50)
+final_Text = ""
+length_Texto = 0
 
-while True:
-    tamanhoTexto = 0
-    for i in text:
-        tamanhoTexto += len(i)
-        if tamanhoTexto <= textmax:
-            textoFinal += i + " "
-        else:
-            textoFinal += "\n"
-            continue
-    continue
-print(textoFinal)
+for i in text:
+    length_Texto += len(i)
+    if length_Texto <= 50:
+        final_Text += i + " "
+    else:
+        length_Texto = 0
+        final_Text += "\n" + i + " "
+
+print(final_Text)
