@@ -1,0 +1,3 @@
+[submodule "example-state"]
+	path = example-state
+	url = https://github.com/PWI-22/example-state.git
