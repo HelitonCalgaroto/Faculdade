@@ -23,47 +23,61 @@ class App extends React.Component
         })
     }
 
+    onChangeInput(event) {
+      this.setState({
+        [event.target.name]: event.target.value
+      })
+    }
+
+    showResult() {
+      if(this.state.result !== ''){
+        return "Seu diagnóstico é: " + this.state.result
+      } else {
+        return null
+      }
+    }
+
   verificarPressao() {
     let resultadoPressao;
     const sistolica = this.state.sistolica
     const diastolica = this.state.diastolica
 
     if (sistolica < 130 && diastolica < 85) {
-      resultadoPressao = "Sua pressão está normal."
+      resultadoPressao = "Normal."
     } else if (sistolica < 140 && diastolica < 90){
-      resultadoPressao = "Sua pressão está normal - Limítrofe."
+      resultadoPressao = "Normal - Limítrofe."
     } else if (sistolica < 160 && diastolica < 100){
-      resultadoPressao = "Você possui Hipertensão Leve."
+      resultadoPressao = "Hipertensão Leve."
     } else if (sistolica < 180 && diastolica < 110){
-      resultadoPressao = "Você possui Hipertensão Moderada."
+      resultadoPressao = "Hipertensão Moderada."
     } else {
-      resultadoPressao = "Você possui Hipertensão Grave, vai se tratar mizeravel."
+      resultadoPressao = "Hipertensão Grave."
     }
 
     this.setState({
       result: resultadoPressao
     })
+
   }
-
-
-  render()
-  {
+  
+  render() {
     return(
       <div>
 
         <h1> Controle de Pressão Arterial</h1>
 
         Pressão Sistólica: <br/>
-        <input type="number" onChange={(event) => this.onChangeSistolica(event)}/> <br/> <br/>
+        <input type="number" name="sistolica" onChange={(event) => this.onChangeInput(event)}/> <br/> <br/>
 
         Pressão diastólica: <br/>
-        <input type="number" onChange={(event) => this.onChangeDiastolica(event)}/> <br/> <br/>
+        <input type="number" name="diastolica" onChange={(event) => this.onChangeInput(event)}/> <br/> <br/>
 
         <input type="button" onClick={() => this.verificarPressao()} value = "Verificar" />
 
         <br/> <br/>
 
-        {this.state.result}
+        {this.showResult()}
+
       </div>
     )
   }
