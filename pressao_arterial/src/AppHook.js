@@ -35,7 +35,7 @@ const AppHook = () => {
 
     setConsulta(newConsulta)
 
-    localStorage.setItem('shopping_list', JSON.stringify(newItens))
+    localStorage.setItem('consulta_pressao_arterial', JSON.stringify(newConsulta))
   }
 
   return(
@@ -64,38 +64,33 @@ const AppHook = () => {
 
         <tr>
           <td><h4> Data </h4></td>
-          {
-          consulta.map( (consulta, index) => (
-            <tr key={index}>
-              <td>{consulta.data}</td>
-            </tr>
-          ))
-          }
-
           <td><h4> Sistolica </h4></td>
+          <td><h4> Diastolica </h4></td>
+          <td><h4> Resultado </h4></td>
+        </tr>
+
+        <tr width={"80%"}>
           {
           consulta.map( (consulta, index) => (
-            <tr key={index}>
-              <td>{consulta.sistolica}</td>
-            </tr>
+            <td key={index}>{consulta.data}</td>
           ))
           }
 
-          <td><h4> Diastolica </h4></td>
           {
           consulta.map( (consulta, index) => (
-            <tr key={index}>
-              <td>{consulta.diastolica}</td>
-            </tr>
+            <td key={index}>{consulta.sistolica}</td>
           ))
-         }
+          }
 
-          <td><h4> Resultado </h4></td>
           {
           consulta.map( (consulta, index) => (
-            <tr key={index}>
-              <td>{consulta.resultado}</td>
-            </tr>
+            <td key={index}>{consulta.diastolica}</td>
+          ))
+          }
+
+          {
+          consulta.map( (consulta, index) => (
+            <td key={index}>{consulta.resultado}</td>
           ))
           }
         </tr>
