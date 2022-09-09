@@ -63,38 +63,37 @@ const AppHook = () => {
       <table border={1} width="80%" cellPadding={-5} cellSpacing={-1}>
 
         <tr>
-          <td><h4> Data </h4></td>
-          <td><h4> Sistolica </h4></td>
-          <td><h4> Diastolica </h4></td>
-          <td><h4> Resultado </h4></td>
+          <thead>
+            <td><h4> Data </h4></td>
+            <td><h4> Sistolica </h4></td>
+            <td><h4> Diastolica </h4></td>
+            <td><h4> Resultado </h4></td>
+          </thead>
         </tr>
-
-        <tr width={"80%"}>
-          {
-          consulta.map( (consulta, index) => (
-            <td key={index}>{consulta.data}</td>
-          ))
-          }
-
-          {
-          consulta.map( (consulta, index) => (
-            <td key={index}>{consulta.sistolica}</td>
-          ))
-          }
-
-          {
-          consulta.map( (consulta, index) => (
-            <td key={index}>{consulta.diastolica}</td>
-          ))
-          }
-
-          {
-          consulta.map( (consulta, index) => (
-            <td key={index}>{consulta.resultado}</td>
-          ))
-          }
-        </tr>
-
+        <tbody>
+          <tr width={"80%"}>
+            {
+            consulta.map( (consulta, index) => (
+              <td key={index}>{consulta.data}</td>
+            ))
+            }
+            {
+            consulta.map( (consulta, index) => (
+              <td key={index}>{consulta.sistolica}</td>
+            ))
+            }
+            {
+            consulta.map( (consulta, index) => (
+              <td key={index}>{consulta.diastolica}</td>
+            ))
+            }
+            {
+            consulta.map( (consulta, index) => (
+              <td key={index}>{consulta.resultado}</td>
+            ))
+            }
+          </tr>
+        </tbody>
       </table>
 
     </div>
